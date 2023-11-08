@@ -5,5 +5,14 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./build:/usr/share/nginx/html
+      - ./dashboard_build:/usr/share/nginx/html
     restart: always
+
+  app:
+    build: ./node-db-server
+    volumes:
+      - ./node-db-server:/usr/src/app
+    container_name: node-server
+    restart: always
+    ports:
+      - 8081:8081
