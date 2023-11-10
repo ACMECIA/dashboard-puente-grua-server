@@ -1,0 +1,30 @@
+version: "3.7"
+services:
+  # nodered:
+  #     container_name: nodered
+  #     image: dpflores/acme_nodered:base
+  #     environment:
+  #         TZ: America/Lima
+  #     # volumes:
+  #     #     - ./nodered-data:/data
+  #     privileged: true
+  #     restart: "always"
+  #     network_mode: "host"
+
+  db:
+    image: linuxserver/mariadb:10.6.13
+    container_name: mariadb
+    volumes:
+      - .mariadb-database/mariadb-data:/config
+    privileged: true
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      PUID: 1000
+      PGID: 1000
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      TZ: America/Lima

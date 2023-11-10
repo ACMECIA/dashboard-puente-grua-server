@@ -37,6 +37,7 @@ const db = mysql.createConnection({
   password: process.env.ACME_INTERNAL_PASSWORD,
   database: process.env.DB_NAME,
 });
+// db.connect();
 
 const verifyUser = (req, res, next) => {
   const token = req.cookies.token;
@@ -68,6 +69,7 @@ app.get("/logout", (req, res) => {
 app.post("/login", (req, res) => {
   const sql = "SELECT * FROM users WHERE email = ? AND password = ? ";
   db.query(sql, [req.body.email, req.body.password], (err, data) => {
+    console.log(err);
     if (err) return res.json({ Errror: "Log in error server" });
     if (data.length > 0) {
       const username = data[0].username;
@@ -85,4 +87,5 @@ app.post("/login", (req, res) => {
 
 app.listen(8081, () => {
   console.log("Server is running on port 8081");
+  // console.log(process.env.ACME_INTERNAL_PASSWORD);
 });

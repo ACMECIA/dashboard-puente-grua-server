@@ -1,0 +1,3 @@
+.env
+mariadb-data/*
+!mariadb-data/initdb.d
