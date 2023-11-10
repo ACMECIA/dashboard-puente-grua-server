@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: ["http://web:8080"],
+    origin: [`http://${process.env.FRONTEND_HOST}:8081`],
     methods: ["GET", "POST"],
     credentials: true,
   })
