@@ -18,6 +18,6 @@ RUN chmod +x /usr/src/app/start.sh
 
 
 EXPOSE 8081
-# CMD ["bash", "-c", "/usr/src/app/start.sh"]
+CMD ["bash", "-c", "/usr/src/app/start.sh"]
 
-ENTRYPOINT [ "tail", "-f", "/dev/null" ]
+# ENTRYPOINT [ "tail", "-f", "/dev/null" ]
