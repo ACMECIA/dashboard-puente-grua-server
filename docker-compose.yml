@@ -11,8 +11,8 @@ services:
 
   app:
     build: ./node-db-server
-    volumes:
-      - ./node-db-server:/usr/src/app
+    # volumes:
+    #   - ./node-db-server:/usr/src/app
     container_name: node-server
     restart: always
     ports:

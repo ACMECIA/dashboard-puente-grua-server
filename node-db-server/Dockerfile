@@ -3,15 +3,16 @@ FROM node:16
 # Create app directory
 WORKDIR /usr/src/app
 
-RUN npm install -g yarn
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
+# COPY package*.json ./
+COPY . .
+
 
 RUN yarn install
 
 # Bundle app source
-COPY . .
+# COPY . .
 
 RUN chmod +x /usr/src/app/start.sh
 
