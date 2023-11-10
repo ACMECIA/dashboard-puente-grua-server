@@ -87,5 +87,6 @@ app.post("/login", (req, res) => {
 
 app.listen(8081, () => {
   console.log("Server is running on port 8081");
+  console.log(process.env.FRONTEND_HOST);
   // console.log(process.env.ACME_INTERNAL_PASSWORD);
 });
